@@ -45,7 +45,7 @@ object DoingStuff {
   val doubled = ???
 
   // sum all numbers in a collection
-  val summed = ???
+  val summed = someNumbers
 
   // print all items in a collection (hint: println will print stuff to standard out)
 
