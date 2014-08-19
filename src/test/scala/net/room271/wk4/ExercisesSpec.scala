@@ -5,7 +5,7 @@ import org.scalatest.{Matchers, FlatSpec}
 class ExercisesSpec extends FlatSpec with Matchers {
 
   "fizzBuzz" should "generate a fizz-buzz sequence" in {
-    val fizzBuzz10 = List(
+    val fizzBuzz15 = List(
       "1",
       "2",
       "fizz",
@@ -14,10 +14,15 @@ class ExercisesSpec extends FlatSpec with Matchers {
       "fizz",
       "7",
       "8",
-      "9",
+      "fizz",
+      "buzz",
+      "11",
+      "fizz",
+      "13",
+      "14",
       "fizz buzz"
     )
-    Exercises.fizzBuzz(10) should be (fizzBuzz10)
+    Exercises.fizzBuzz(15) should be (fizzBuzz15)
   }
 
   "filterEven" should "filter out odd numbers" in {
@@ -42,7 +47,7 @@ class ExercisesSpec extends FlatSpec with Matchers {
     )
 
     for (example <- examples) {
-      Exercises.filterEven(example) should be (example.filter(_ % 2 != 0))
+      Exercises.filterOdd(example) should be (example.filter(_ % 2 != 0))
     }
   }
 
