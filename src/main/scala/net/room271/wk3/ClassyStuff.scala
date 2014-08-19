@@ -37,7 +37,45 @@ object ScratchPad {
  * 
  */
 
-//class BankAccount { }
+// Imperative-style (note, 'bal' is a var)
+class BankAccount {
+
+  private var bal: Int = 0
+
+  def balance: Int = bal
+
+  def deposit(amount: Int): Unit = {
+    require(amount > 0)
+    bal += amount
+  }
+
+  def withdraw(amount: Int): Boolean = {
+    if (amount > bal) false
+    else {
+      bal -= amount
+      true
+    }
+  }
+}
+
+// Functional style (note, 'case' keyword has many effects, but the key thing
+// here is that it sets all constructor parameters - in this case 'balance' -
+// to be vals by default)
+//
+// Instead of modifying balance directly, we return a new object if changes are
+// made
+case class BankBalance(balance: Int) {
+
+  def deposit(amount: Int): Unit = {
+    require(amount > 0)
+    BankBalance(balance + amount)
+  }
+
+  def withdraw(amount: Int): BankBalance = {
+    if (amount > balance) this
+    else BankBalance(balance - amount)
+  }
+}
 
 
 

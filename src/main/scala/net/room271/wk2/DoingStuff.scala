@@ -1,5 +1,7 @@
 package net.room271.wk2
 
+import scala.annotation.tailrec
+
 object DoingStuff {
 
   /*
@@ -45,19 +47,39 @@ object DoingStuff {
   val doubled = ???
 
   // sum all numbers in a collection
-  val summed = someNumbers
+  val summed1 = someNumbers.sum // cheating!
+  val summed2 = someNumbers.fold(0)(_ + _)
 
   // print all items in a collection (hint: println will print stuff to standard out)
+
+  // all are equivalent...
+  for (number <- someNumbers) println(number)
+  someNumbers.foreach(println) // pass just function
+  someNumbers.foreach(println(_)) // with underscore argument
+  someNumbers foreach { number => println(number) } // more explicit, uses 'operator' notation (i.e. no dot method calls)
+  someNumbers foreach println // most succinct
 
   // More advanced...
 
   // implement your own filter function for List[Int] (hint, use recursion, .head, .tail, and ::)
-  def filter(l: List[Int], f: Int => Boolean): List[Int] = ???
+  def filter(list: List[Int], f: Int => Boolean): List[Int] = {
+    @tailrec
+    def loop (input: List[Int], output: List[Int]): List[Int] = {
+      if (input.isEmpty) output
+      else if (f(input.head)) loop(input.tail, input.head :: output)
+      else loop(input.tail, output)
+    }
+
+    loop(list, Nil)
+  }
+
+  // note, this is a recursive definition which could cause a stack overflow.
+  // The @tailrec annotation can give a compile-time warning against this
 
   // implement a simple factorial function (hint, use fold)
-  def factorial(n: Int): Int = ???
-
-  // q. any problems with this definition?
+  def factorial(n: Int): Int = {
+    (1 to n).fold(0)(_ * _) // note 1 to n is a 'range'
+  }
 
   // write some tests for the above!
 
