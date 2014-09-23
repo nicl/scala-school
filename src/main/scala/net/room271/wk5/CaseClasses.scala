@@ -23,10 +23,10 @@ object CaseClasses {
   val y = shape.copy()
 
   // 5. provides support for pattern matching!
-  shape match {
-    case Square(w) => "Found a Square with width: " + w
-    case Rectangle(w, h) => s"Found a Rectangle with width: $w and height: $h."
-  }
+  //shape match {
+  //  case Square(w) => "Found a Square with width: " + w
+  //  case Rectangle(w, h) => s"Found a Rectangle with width: $w and height: $h."
+  //}
 
   // Case classes are great for expressing algebraic data types (types with multiple variants)
 

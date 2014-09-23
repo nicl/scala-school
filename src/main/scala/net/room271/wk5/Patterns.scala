@@ -34,10 +34,10 @@ object Patterns {
   val fruit = Apple
 
   // Try defining the above in your console and then run:
-  fruit match {
-    case Banana => "Found a banana! - "
-    case Apple => "Found an apple! - mmm tasty"
-  }
+ // fruit match {
+ //   case Banana => "Found a banana! - "
+ //   case Apple => "Found an apple! - mmm tasty"
+  //}
 
   // what happened? How can you fix it?
 
@@ -50,11 +50,11 @@ object Patterns {
     case _ => "Many"
   }
 
-  def stringToBoolean(s: String): Option[Boolean] = {
-    case "yes" => Some(true)
-    case "no" => Some(false)
-    case _ => None
-  }
+//  def stringToBoolean(s: String): Option[Boolean] = {
+//    case "yes" => Some(true)
+//    case "no" => Some(false)
+//    case _ => None
+//  }
 
 
 
