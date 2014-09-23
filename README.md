@@ -47,3 +47,11 @@ To enter the REPL:
 * objects
 * case classes
 * companion objects
+
+### Week 4
+
+* for expressions
+
+### Week 5
+
+* pattern matching and case classes
